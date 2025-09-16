@@ -1,0 +1,64 @@
+import { Button } from '@/components/ui/button';
+import { Download, Mail, Code } from 'lucide-react';
+
+const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section id="home" className="min-h-screen flex items-center section-padding">
+      <div className="container-max w-full">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h1 className="text-5xl lg:text-6xl font-bold">
+                Hi, I'm <span className="text-primary">Vedant Parikh</span>
+              </h1>
+              <h2 className="text-2xl lg:text-3xl text-muted-foreground font-medium">
+                Software Engineer | Python Developer
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+                Computer Engineering Graduate building scalable Python solutions with expertise in 
+                AI/ML, NLP, and backend development. GATE CSE qualified with a passion for creating 
+                innovative data-driven applications.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <Button size="lg" className="gap-2">
+                <Download className="w-4 h-4" />
+                Download Resume
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="gap-2"
+                onClick={() => scrollToSection('contact')}
+              >
+                <Mail className="w-4 h-4" />
+                Contact Me
+              </Button>
+            </div>
+          </div>
+
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-primary to-primary-dark p-1">
+                <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
+                  <Code className="w-24 h-24 text-code-icon" />
+                </div>
+              </div>
+              <div className="absolute inset-0 hero-gradient rounded-full opacity-20 animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
