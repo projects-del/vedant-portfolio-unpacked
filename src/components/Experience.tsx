@@ -1,9 +1,15 @@
+import { ChevronLeft, ChevronRight, Trophy, Award, GraduationCap } from 'lucide-react';
+import { useState } from 'react';
+
 const Experience = () => {
-  const experiences = [
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const timelineItems = [
     {
-      company: "Genesis Artificial Intelligence",
-      companyUrl: "https://genesisai.com",
-      position: "Software Engineer",
+      type: "work",
+      title: "Software Engineer",
+      organization: "Genesis Artificial Intelligence",
+      organizationUrl: "https://genesisai.com",
       duration: "September 2024 - Present",
       responsibilities: [
         "Engineered core financial data extraction logic using PyMuPDF and PyPDF2",
@@ -12,135 +18,138 @@ const Experience = () => {
       ]
     },
     {
-      company: "Crest Data",
-      companyUrl: "https://crestdata.com",
-      position: "Software Engineer",
+      type: "work",
+      title: "Software Engineer",
+      organization: "Crest Data",
+      organizationUrl: "https://crestdata.com",
       duration: "November 2023 - August 2024",
       responsibilities: [
         "Developed SaaS-based SIEM Migration Tool for cross-platform migrations",
         "Built RESTful APIs with FastAPI and ReactJS frontend components",
         "Enhanced Google Chronicle Platform with UDM configuration automation"
       ]
+    },
+    {
+      type: "work",
+      title: "Software Engineer Intern",
+      organization: "TenUp Software Services",
+      organizationUrl: "https://tenup.com",
+      duration: "May 2023 - July 2023",
+      responsibilities: [
+        "Implemented spaCy NLP models for automated resume parsing",
+        "Deployed scalable RESTful APIs on Nginx Web Server",
+        "Enabled real-time integration with HR systems"
+      ]
+    },
+    {
+      type: "education",
+      title: "B.Tech Computer Engineering",
+      organization: "Dharamsingh Desai University, Nadiad",
+      organizationUrl: "https://ddu.ac.in",
+      duration: "2020 - 2024",
+      responsibilities: [
+        "CGPA: 8.35/10.0"
+      ]
     }
   ];
 
-  const education = [
+  const achievementsAndCertificates = [
     {
-      degree: "B.Tech in Computer Engineering",
-      institution: "University Name",
-      duration: "2019 - 2023",
-      achievements: ["GATE CSE Qualified", "First Class with Distinction"]
-    }
-  ];
-
-  const achievements = [
+      type: "achievement",
+      icon: Trophy,
+      title: "Global Rank 60",
+      subtitle: "CodeChef August Long Challenge 2022",
+      category: "Competition"
+    },
     {
+      type: "certificate",
+      icon: Award,
+      title: "AWS Certified Solutions Architect",
+      subtitle: "Amazon Web Services - 2023",
+      category: "Certification"
+    },
+    {
+      type: "achievement",
+      icon: Trophy,
       title: "GATE CSE Qualified",
-      year: "2023",
-      description: "Qualified Graduate Aptitude Test in Engineering for Computer Science"
+      subtitle: "Graduate Aptitude Test in Engineering 2023",
+      category: "Achievement"
     },
     {
+      type: "certificate",
+      icon: Award,
+      title: "Python for Data Science",
+      subtitle: "Coursera - 2022",
+      category: "Certification"
+    },
+    {
+      type: "certificate",
+      icon: Award,
+      title: "React Developer Certification",
+      subtitle: "Meta - 2023",
+      category: "Certification"
+    },
+    {
+      type: "achievement",
+      icon: GraduationCap,
       title: "First Class with Distinction",
-      year: "2023",
-      description: "Graduated with honors in Computer Engineering"
-    },
-    {
-      title: "Hackathon Winner",
-      year: "2022",
-      description: "Won first place in university-level coding hackathon"
+      subtitle: "Computer Engineering Degree",
+      category: "Achievement"
     }
   ];
 
-  const certificates = [
-    {
-      name: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      year: "2023",
-      credentialId: "AWS-CSA-2023-001"
-    },
-    {
-      name: "Python for Data Science",
-      issuer: "Coursera",
-      year: "2022",
-      credentialId: "COURSERA-PDS-2022"
-    },
-    {
-      name: "React Developer Certification",
-      issuer: "Meta",
-      year: "2023",
-      credentialId: "META-RDC-2023"
-    }
-  ];
+  const nextSlide = () => {
+    setCurrentIndex((prev) => 
+      prev >= achievementsAndCertificates.length - 3 ? 0 : prev + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => 
+      prev <= 0 ? Math.max(0, achievementsAndCertificates.length - 3) : prev - 1
+    );
+  };
 
   return (
     <section id="experience" className="py-20 section-padding">
       <div className="container-max">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">Experience & Education</h2>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Experience */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-primary mb-8">Work Experience</h3>
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-border"></div>
-              
-              {experiences.map((exp, index) => (
-                <div key={index} className="relative pl-8 pb-8">
-                  {/* Timeline dot */}
-                  <div className="absolute left-0 top-1 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
-                  
-                  <div className="space-y-2">
-                    <h4 className="text-xl font-bold text-foreground">{exp.position}</h4>
-                    <a 
-                      href={exp.companyUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-lg font-semibold text-primary hover:underline inline-block"
-                    >
-                      {exp.company}
-                    </a>
-                    <p className="text-muted-foreground">{exp.duration}</p>
-                    <ul className="space-y-2 mt-4">
-                      {exp.responsibilities.map((resp, respIndex) => (
-                        <li key={respIndex} className="flex items-start gap-2 text-muted-foreground">
-                          <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                          <span>{resp}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* Experience Timeline */}
+        <div className="mb-20">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">Experience & Education</h2>
           </div>
 
-          {/* Education */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-primary mb-8">Education</h3>
+          <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-border"></div>
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border"></div>
               
-              {education.map((edu, index) => (
-                <div key={index} className="relative pl-8 pb-8">
+              {timelineItems.map((item, index) => (
+                <div key={index} className="relative pl-20 pb-12 last:pb-0">
                   {/* Timeline dot */}
-                  <div className="absolute left-0 top-1 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
+                  <div className="absolute left-6 top-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
                   
-                  <div className="space-y-2">
-                    <h4 className="text-xl font-bold text-foreground">{edu.degree}</h4>
-                    <p className="text-lg font-semibold text-primary">{edu.institution}</p>
-                    <p className="text-muted-foreground">{edu.duration}</p>
-                    <ul className="space-y-2 mt-4">
-                      {edu.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex} className="flex items-start gap-2 text-muted-foreground">
-                          <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="bg-card rounded-lg p-6 border border-border hover:shadow-lg transition-shadow">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
+                      <a 
+                        href={item.organizationUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-lg font-semibold text-primary hover:underline inline-block"
+                      >
+                        {item.organization}
+                      </a>
+                      <p className="text-muted-foreground">{item.duration}</p>
+                      <ul className="space-y-2 mt-4">
+                        {item.responsibilities.map((resp, respIndex) => (
+                          <li key={respIndex} className="flex items-start gap-2 text-muted-foreground">
+                            <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
+                            <span>{resp}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -149,40 +158,73 @@ const Experience = () => {
         </div>
 
         {/* Achievements & Certificates */}
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Achievements */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-primary mb-8">Achievements</h3>
-            <div className="space-y-6">
-              {achievements.map((achievement, index) => (
-                <div key={index} className="bg-card rounded-lg p-6 border border-border hover:shadow-lg transition-shadow">
-                  <div className="flex items-start justify-between mb-2">
-                    <h4 className="text-lg font-bold text-foreground">{achievement.title}</h4>
-                    <span className="text-sm text-primary font-semibold bg-primary/10 px-2 py-1 rounded">
-                      {achievement.year}
-                    </span>
-                  </div>
-                  <p className="text-muted-foreground">{achievement.description}</p>
-                </div>
-              ))}
-            </div>
+        <div>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">Achievements & Certifications</h2>
           </div>
 
-          {/* Certificates */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-primary mb-8">Certificates</h3>
-            <div className="space-y-6">
-              {certificates.map((cert, index) => (
-                <div key={index} className="bg-card rounded-lg p-6 border border-border hover:shadow-lg transition-shadow">
-                  <div className="flex items-start justify-between mb-2">
-                    <h4 className="text-lg font-bold text-foreground">{cert.name}</h4>
-                    <span className="text-sm text-primary font-semibold bg-primary/10 px-2 py-1 rounded">
-                      {cert.year}
-                    </span>
-                  </div>
-                  <p className="text-primary font-semibold">{cert.issuer}</p>
-                  <p className="text-sm text-muted-foreground mt-1">ID: {cert.credentialId}</p>
-                </div>
+          <div className="relative max-w-6xl mx-auto">
+            {/* Navigation buttons */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-background border border-border rounded-full p-2 hover:bg-accent transition-colors"
+              aria-label="Previous"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-background border border-border rounded-full p-2 hover:bg-accent transition-colors"
+              aria-label="Next"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            {/* Cards container */}
+            <div className="overflow-hidden px-16">
+              <div 
+                className="flex transition-transform duration-300 ease-in-out gap-6"
+                style={{
+                  transform: `translateX(-${currentIndex * (100 / 3)}%)`
+                }}
+              >
+                {achievementsAndCertificates.map((item, index) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 w-80 bg-card rounded-lg p-8 border border-border hover:shadow-lg transition-shadow text-center"
+                    >
+                      <div className="flex justify-center mb-4">
+                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                          <IconComponent className="w-8 h-8 text-primary" />
+                        </div>
+                      </div>
+                      <div className="mb-2">
+                        <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">
+                          {item.category}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                      <p className="text-muted-foreground">{item.subtitle}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Dots indicator */}
+            <div className="flex justify-center mt-8 gap-2">
+              {Array.from({ length: Math.max(1, achievementsAndCertificates.length - 2) }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    index === currentIndex ? 'bg-primary' : 'bg-border'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
               ))}
             </div>
           </div>
