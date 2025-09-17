@@ -119,36 +119,40 @@ const Experience = () => {
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">Experience & Education</h2>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border"></div>
+              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border transform -translate-x-1/2"></div>
               
               {timelineItems.map((item, index) => (
-                <div key={index} className="relative pl-20 pb-12 last:pb-0">
+                <div key={index} className={`relative flex items-center mb-12 last:mb-0 ${
+                  index % 2 === 0 ? 'justify-start' : 'justify-end'
+                }`}>
                   {/* Timeline dot */}
-                  <div className="absolute left-6 top-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
+                  <div className="absolute left-1/2 top-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background transform -translate-x-1/2 -translate-y-1/2 z-10"></div>
                   
-                  <div className="bg-card rounded-lg p-6 border border-border hover:shadow-lg transition-shadow">
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
-                      <a 
-                        href={item.organizationUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-lg font-semibold text-primary hover:underline inline-block"
-                      >
-                        {item.organization}
-                      </a>
-                      <p className="text-muted-foreground">{item.duration}</p>
-                      <ul className="space-y-2 mt-4">
-                        {item.responsibilities.map((resp, respIndex) => (
-                          <li key={respIndex} className="flex items-start gap-2 text-muted-foreground">
-                            <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                            <span>{resp}</span>
-                          </li>
-                        ))}
-                      </ul>
+                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                    <div className="bg-card rounded-lg p-6 border border-border hover:shadow-lg transition-shadow">
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
+                        <a 
+                          href={item.organizationUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-lg font-semibold text-primary hover:underline inline-block"
+                        >
+                          {item.organization}
+                        </a>
+                        <p className="text-sm text-muted-foreground">{item.duration}</p>
+                        <ul className="space-y-2 mt-4">
+                          {item.responsibilities.map((resp, respIndex) => (
+                            <li key={respIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
+                              <span>{resp}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
