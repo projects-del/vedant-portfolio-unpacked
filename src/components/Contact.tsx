@@ -29,7 +29,10 @@ const Contact = () => {
               
               <div className="space-y-4">
                 {/* Email Card */}
-                <div className="bg-card border rounded-lg p-4 flex items-center gap-4 hover:shadow-md transition-shadow">
+                <a 
+                  href="mailto:parikhvedant2003@gmail.com"
+                  className="bg-card border rounded-lg p-4 flex items-center gap-4 hover:shadow-md transition-shadow cursor-pointer block"
+                >
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
@@ -37,10 +40,15 @@ const Contact = () => {
                     <p className="font-medium text-sm text-muted-foreground">Email</p>
                     <p className="text-primary">parikhvedant2003@gmail.com</p>
                   </div>
-                </div>
+                </a>
 
                 {/* LinkedIn Card */}
-                <div className="bg-card border rounded-lg p-4 flex items-center gap-4 hover:shadow-md transition-shadow cursor-pointer">
+                <a 
+                  href="https://linkedin.com/in/parikhvedant2003"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-card border rounded-lg p-4 flex items-center gap-4 hover:shadow-md transition-shadow cursor-pointer block"
+                >
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                     <Linkedin className="w-5 h-5 text-primary" />
                   </div>
@@ -48,10 +56,15 @@ const Contact = () => {
                     <p className="font-medium text-sm text-muted-foreground">LinkedIn</p>
                     <p className="text-primary">in/parikhvedant2003</p>
                   </div>
-                </div>
+                </a>
 
                 {/* GitHub Card */}
-                <div className="bg-card border rounded-lg p-4 flex items-center gap-4 hover:shadow-md transition-shadow cursor-pointer">
+                <a 
+                  href="https://github.com/parikhvedant2003"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-card border rounded-lg p-4 flex items-center gap-4 hover:shadow-md transition-shadow cursor-pointer block"
+                >
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                     <Github className="w-5 h-5 text-primary" />
                   </div>
@@ -59,10 +72,13 @@ const Contact = () => {
                     <p className="font-medium text-sm text-muted-foreground">GitHub</p>
                     <p className="text-primary">parikhvedant2003</p>
                   </div>
-                </div>
+                </a>
 
                 {/* Phone Card */}
-                <div className="bg-card border rounded-lg p-4 flex items-center gap-4 hover:shadow-md transition-shadow">
+                <a 
+                  href="tel:+919426637251"
+                  className="bg-card border rounded-lg p-4 flex items-center gap-4 hover:shadow-md transition-shadow cursor-pointer block"
+                >
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
@@ -70,7 +86,7 @@ const Contact = () => {
                     <p className="font-medium text-sm text-muted-foreground">Phone</p>
                     <p className="text-primary">+91 9426637251</p>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
