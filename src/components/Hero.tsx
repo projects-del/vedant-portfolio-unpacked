@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { Download, Mail, Code } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Download, Mail, Code, Eye } from 'lucide-react';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -43,6 +44,32 @@ const Hero = () => {
                   Download Resume
                 </a>
               </Button>
+              
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="gap-2"
+                  >
+                    <Eye className="w-4 h-4" />
+                    See Resume
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl w-full h-[80vh]">
+                  <DialogHeader>
+                    <DialogTitle>Vedant Parikh - Resume</DialogTitle>
+                  </DialogHeader>
+                  <div className="flex-1 w-full">
+                    <iframe
+                      src="/resume.pdf"
+                      className="w-full h-full border-0 rounded-md"
+                      title="Vedant Parikh Resume"
+                    />
+                  </div>
+                </DialogContent>
+              </Dialog>
+
               <Button 
                 variant="outline" 
                 size="lg" 
