@@ -29,9 +29,19 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="gap-2">
-                <Download className="w-4 h-4" />
-                Download Resume
+              <Button 
+                size="lg" 
+                className="gap-2"
+                asChild
+              >
+                <a 
+                  href="/resume.pdf" 
+                  download="Vedant_Parikh_Resume.pdf"
+                  className="inline-flex items-center justify-center"
+                >
+                  <Download className="w-4 h-4" />
+                  Download Resume
+                </a>
               </Button>
               <Button 
                 variant="outline" 
