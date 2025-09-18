@@ -56,11 +56,11 @@ const Hero = () => {
                     See Resume
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-4xl w-full h-[80vh]">
-                  <DialogHeader>
+                <DialogContent className="max-w-4xl w-full h-[80vh] p-0 flex flex-col">
+                  <DialogHeader className="px-6 py-4 border-b">
                     <DialogTitle>Vedant Parikh - Resume</DialogTitle>
                   </DialogHeader>
-                  <div className="flex-1 w-full">
+                  <div className="flex-1 p-4">
                     <iframe
                       src="/resume.pdf"
                       className="w-full h-full border-0 rounded-md"
