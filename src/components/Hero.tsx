@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Download, Mail, Brain, Eye } from 'lucide-react';
+import { Download, Mail, Eye } from 'lucide-react';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -86,7 +86,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-80 h-80 rounded-full bg-gradient-to-br from-primary to-primary-dark p-1">
                 <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                  <Brain className="w-24 h-24 text-primary" />
+                  <span className="text-6xl font-bold text-primary">&lt;/&gt;</span>
                 </div>
               </div>
               <div className="absolute inset-0 hero-gradient rounded-full opacity-20 animate-pulse"></div>
