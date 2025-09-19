@@ -18,10 +18,10 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-6xl font-bold">
-                Hi, I'm <span className="text-primary">Vedant Parikh</span>
+                Hi, I'm <span className="text-primary">Aarya Mehta</span>
               </h1>
               <h2 className="text-2xl lg:text-3xl text-muted-foreground font-medium">
-                Software Engineer | Python Developer
+                AI/ML Engineer | Python Developer
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
                 Computer Engineering Graduate building scalable Python solutions with expertise in 
@@ -38,7 +38,7 @@ const Hero = () => {
               >
                 <a 
                   href="/resume.pdf" 
-                  download="Vedant_Parikh_Resume.pdf"
+                  download="Aarya_Mehta_Resume.pdf"
                   className="inline-flex items-center justify-center"
                 >
                   <Download className="w-4 h-4" />
@@ -59,13 +59,13 @@ const Hero = () => {
                 </DialogTrigger>
                 <DialogContent className="max-w-4xl w-full h-[80vh] p-0 flex flex-col">
                   <DialogHeader className="px-6 py-4 border-b">
-                    <DialogTitle>Vedant Parikh - Resume</DialogTitle>
+                    <DialogTitle>Aarya Mehta - Resume</DialogTitle>
                   </DialogHeader>
                   <div className="flex-1 p-4">
                     <iframe
                       src="/resume.pdf"
                       className="w-full h-full border-0 rounded-md"
-                      title="Vedant Parikh Resume"
+                      title="Aarya Mehta Resume"
                     />
                   </div>
                 </DialogContent>
