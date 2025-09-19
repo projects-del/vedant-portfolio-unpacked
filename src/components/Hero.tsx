@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Download, Mail, Eye } from 'lucide-react';
+import developerAvatar from '@/assets/developer-avatar.png';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -85,8 +86,12 @@ const Hero = () => {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="w-80 h-80 rounded-full bg-gradient-to-br from-primary to-primary-dark p-1">
-                <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                  <span className="text-6xl font-bold text-primary">&lt;/&gt;</span>
+                <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={developerAvatar} 
+                    alt="AI Python Developer" 
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
               </div>
               <div className="absolute inset-0 hero-gradient rounded-full opacity-20 animate-pulse"></div>
