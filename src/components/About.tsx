@@ -26,15 +26,15 @@ const About = () => {
                 backend systems that make an impact.
               </p>
               
-              <ul className="space-y-3 flex flex-col items-center">
-                <li className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></span>
+              <ul className="space-y-4 text-left max-w-2xl">
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                   <span>
                     Specialize in Python Development, Machine Learning, and AI/ML-powered applications
                   </span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></span>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                   <span>
                     Build Data Analytics Tools, Automation Systems and Intelligent Applications
                   </span>
